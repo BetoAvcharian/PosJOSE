@@ -844,10 +844,16 @@ function descargarPDF() {
       });
       if(col!==0){y+=18;} y+=4;
 
-      doc.setFillColor(0,0,0); doc.roundedRect(ML,y,TW,13,2,2,"F");
-      doc.setFont("helvetica","italic"); doc.setFontSize(8.5); doc.setTextColor(245,242,236);
-      doc.text('"El Comprador presta expresa conformidad con los siguientes puntos."',ML+4,y+8.5);
-      y+=20;
+     doc.setDrawColor(0,0,0);
+      doc.line(ML, y, ML+TW, y);
+      
+      y += 6;
+      
+      doc.setFont("helvetica","bold");
+      doc.setFontSize(10);
+      doc.text("El Comprador presta expresa conformidad con los siguientes puntos:", ML, y);
+      
+      y += 10;
 
       const ok=S.items.filter(i=>i.estado==="ok").length;
       const obs=S.items.filter(i=>i.estado==="obs").length;
